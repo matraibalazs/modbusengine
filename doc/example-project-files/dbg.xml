@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mbpro>
+	<project>
+		<name>Debug</name>
+	</project>
+
+	<db>
+		<dbType>mysql</dbType>
+		<dbUrl>localhost</dbUrl>
+		<dbPort>3306</dbPort>
+		<dbName>modbusengine</dbName>
+		<dbUser>root</dbUser>
+		<dbPass>Tr1angl3</dbPass>
+	</db>
+
+	<modbusdriver>
+		<devices>
+			<device>
+				<deviceId>Local_Machine</deviceId>
+				<ip>127.0.0.1</ip>
+				<port>502</port>
+				<slaveId>1</slaveId>
+				<responseTimeout>3000</responseTimeout>
+				<connectionTimeout>1000</connectionTimeout>
+				<blocks>
+					<block>
+						<blockId>DBG_1</blockId>
+						<offset>0</offset>
+						<count>120</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>DBG_2</blockId>
+						<offset>120</offset>
+						<count>2</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>DBG_3</blockId>
+						<offset>122</offset>
+						<count>4</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+				</blocks>
+			</device>
+		</devices>
+	</modbusdriver>
+
+	<taglist>
+		<!-- Signed types -->
+		<tag name="test_bit" deviceId="Local_Machine" blockId="DBG_1" address="0" subAddress="0" type="bit"/>
+		<tag name="test_byte" deviceId="Local_Machine" blockId="DBG_1" address="0" subAddress="1" type="byte"/>
+		<tag name="test_word" deviceId="Local_Machine" blockId="DBG_1" address="1" type="word"/>
+		<tag name="test_dword" deviceId="Local_Machine" blockId="DBG_1" address="2" type="dword"/>
+
+        <!-- Unsigned types -->
+		<tag name="test_ubyte" deviceId="Local_Machine" blockId="DBG_1" address="4" subAddress="0" type="ubyte"/>
+		<tag name="test_uword" deviceId="Local_Machine" blockId="DBG_1" address="5" type="uword"/>
+		<tag name="test_udword" deviceId="Local_Machine" blockId="DBG_1" address="6" type="udword"/>
+
+        <!-- Real16 types -->
+		<tag name="test_real16_10" deviceId="Local_Machine" blockId="DBG_1" address="8" type="real16" divider="10"/>
+        <tag name="test_real16_100" deviceId="Local_Machine" blockId="DBG_1" address="9" type="real16" divider="100"/>
+        <tag name="test_real16_1000" deviceId="Local_Machine" blockId="DBG_1" address="10" type="real16" divider="1000"/>
+        <tag name="test_real16_10000" deviceId="Local_Machine" blockId="DBG_1" address="11" type="real16" divider="10000"/>
+	</taglist>
+</mbpro>

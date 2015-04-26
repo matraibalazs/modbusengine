@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mbpro>
+	<project>
+		<name>Halas</name>
+	</project>
+
+	<db>
+		<dbType>mysql</dbType>
+		<dbUrl>localhost</dbUrl>
+		<dbPort>3306</dbPort>
+		<dbName>scada_modbusengine</dbName>
+		<dbUser>root</dbUser>
+		<dbPass>linux</dbPass>
+	</db>
+
+	<modbusdriver>
+		<devices>
+			<device>
+				<deviceId>A1_Beckhoff_PLC</deviceId>
+				<ip>127.0.0.1</ip>
+				<port>502</port>
+				<slaveId>1</slaveId>
+				<responseTimeout>3000</responseTimeout>
+				<connectionTimeout>1000</connectionTimeout>
+				<blocks>
+					<block>
+						<blockId>Help</blockId>
+						<offset>18288</offset>
+						<count>120</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Alarm</blockId>
+						<offset>12388</offset>
+						<count>100</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Main</blockId>
+						<offset>12288</offset>
+						<count>100</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Recipe</blockId>
+						<offset>12488</offset>
+						<count>120</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Service</blockId>
+						<offset>12788</offset>
+						<count>100</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Settings</blockId>
+						<offset>17778</offset>
+						<count>120</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+
+					<block>
+						<blockId>Testing</blockId>
+						<offset>19288</offset>
+						<count>100</count>
+						<cycleTime>500</cycleTime>
+						<retries>3</retries>
+					</block>
+				</blocks>
+			</device>
+		</devices>
+	</modbusdriver>
+
+	<taglist>
+		<!-- Test parameters -->
+		<tag name="test_bit" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="0" subAddress="0" type="bit"/>
+		<tag name="test_byte" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="1" subAddress="0" type="byte"/>
+		<tag name="test_word" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="2" type="word"/>
+		<tag name="test_dword" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="3" type=" dword"/>
+		<tag name="test_ubyte" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="5" subAddress="1" type="ubyte"/>
+		<tag name="test_uword" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="6" type="uword"/>
+		<tag name="test_udword" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="7" type="udword"/>
+		<tag name="test_real16" deviceId="A1_Beckhoff_PLC" blockId="Testing" address="9" type="real16" divider="10"/>
+
+		<!-- Main parameters -->
+		<tag name="status_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="0" type="word"/>
+		<tag name="step_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="1" type="word"/>
+		<tag name="recipeNumber_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="2" type="word"/>
+		<tag name="startDelay_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="3" type="word"/>
+		<tag name="timeLeftToStart_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="4" type="word"/>
+		<tag name="prescPipeMoisture_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="5" type="real16" divider="10"/>
+		<tag name="chamberMoisture_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="6" type="real16" divider="10"/>
+		<tag name="chamberTemp_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="7" type="real16" divider="10"/>
+		<tag name="ventSpeed_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="8" type="real16" divider="10"/>
+		<tag name="chamberUe_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="9" type="real16" divider="10"/>
+		<tag name="tubeRH_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="10" type="real16" divider="10"/>
+		<tag name="chamberRunTime_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="11" type="real16" divider="10"/>
+		<tag name="chamberLeftTime_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="12" type="real16" divider="10"/>
+		<tag name="maxWaitingTime_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="13" type="word"/>
+		<tag name="completeBar_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="15" type="word"/>
+		<tag name="lastStartYear_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="16" type="word"/>
+		<tag name="lastStartMonth_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="17" type="word"/>
+		<tag name="lasStartHour_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="18" type="word"/>
+		<tag name="lastStartMinute_A1" deviceId="A1_Beckhoff_PLC"blockId="Main" address="19" type="word"/>
+		<tag name="lastStopYear_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="20" type="word"/>
+		<tag name="lastStopMonth_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="21" type="word"/>
+		<tag name="lastStopHour_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="22" type="word"/>
+		<tag name="lastStopMinute_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="23" type="word"/>
+		<tag name="startDelayTime_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="23" type="word"/>
+		<tag name="lastTimeIntervalHours_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="24" type="word"/>
+		<tag name="enableDoorOpen_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="24" type="word"/>
+		<tag name="manualParam1_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="27" type="word"/>
+		<tag name="manualParam2_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="28" type="word"/>
+		<tag name="manualParam3_A1" deviceId="A1_Beckhoff_PLC" blockId="Main" address="29" type="real16" divider="10"/>
+
+		<!-- Recipe parameters -->
+		<tag name="CSONDVA_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="0" type="word"/>
+		<tag name="HOMA_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="1" type="word"/>
+		<tag name="RHA_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="2" type="word"/>
+		<tag name="RHS_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="3" type="word"/>
+
+		<tag name="SZABP_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="4" type="word"/>
+		<tag name="LEPA_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="5" type="word"/>
+		<tag name="RH_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="6" type="word"/>
+		<tag name="HOM_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="7" type="word"/>
+		<tag name="MIDO_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="8" type="word"/>
+		<tag name="MER_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="9" type="word"/>
+		<tag name="CSONDV_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="10" type="word"/>
+		<tag name="VENT_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="11" type="word"/>
+		<tag name="VENTA_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="12" type="word"/>
+		<tag name="VENTF_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="13" type="word"/>
+		<tag name="VENTFE_1_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="14" type="word"/>
+
+		<tag name="SZABP_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="15" type="word"/>
+		<tag name="LEPA_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="16" type="word"/>
+		<tag name="RH_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="17" type="word"/>
+		<tag name="HOM_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="18" type="word"/>
+		<tag name="MIDO_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="19" type="word"/>
+		<tag name="MER_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="20" type="word"/>
+		<tag name="CSONDV_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="21" type="word"/>
+		<tag name="VENT_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="22" type="word"/>
+		<tag name="VENTA_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="23" type="word"/>
+		<tag name="VENTF_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="24" type="word"/>
+		<tag name="VENTFE_2_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="25" type="word"/>
+
+		<tag name="SZABP_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="26" type="word"/>
+		<tag name="LEPA_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="27" type="word"/>
+		<tag name="RH_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="28" type="word"/>
+		<tag name="HOM_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="29" type="word"/>
+		<tag name="MIDO_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="30" type="word"/>
+		<tag name="MER_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="31" type="word"/>
+		<tag name="CSONDV_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="32" type="word"/>
+		<tag name="VENT_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="33" type="word"/>
+		<tag name="VENTA_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="34" type="word"/>
+		<tag name="VENTF_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="35" type="word"/>
+		<tag name="VENTFE_3_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="36" type="word"/>
+
+		<tag name="SZABP_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="37" type="word"/>
+		<tag name="LEPA_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="38" type="word"/>
+		<tag name="RH_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="39" type="word"/>
+		<tag name="HOM_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="40" type="word"/>
+		<tag name="MIDO_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="41" type="word"/>
+		<tag name="MER_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="42" type="word"/>
+		<tag name="CSONDV_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="43" type="word"/>
+		<tag name="VENT_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="44" type="word"/>
+		<tag name="VENTA_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="45" type="word"/>
+		<tag name="VENTF_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="46" type="word"/>
+		<tag name="VENTFE_4_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="47" type="word"/>
+
+		<tag name="SZABP_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="48" type="word"/>
+		<tag name="LEPA_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="49" type="word"/>
+		<tag name="RH_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="50" type="word"/>
+		<tag name="HOM_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="51" type="word"/>
+		<tag name="MIDO_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="52" type="word"/>
+		<tag name="MER_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="53" type="word"/>
+		<tag name="CSONDV_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="54" type="word"/>
+		<tag name="VENT_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="55" type="word"/>
+		<tag name="VENTA_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="56" type="word"/>
+		<tag name="VENTF_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="57" type="word"/>
+		<tag name="VENTFE_5_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="58" type="word"/>
+
+		<tag name="SZABP_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="59" type="word"/>
+		<tag name="LEPA_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="60" type="word"/>
+		<tag name="RH_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="61" type="word"/>
+		<tag name="HOM_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="62" type="word"/>
+		<tag name="MIDO_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="63" type="word"/>
+		<tag name="MER_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="64" type="word"/>
+		<tag name="CSONDV_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="65" type="word"/>
+		<tag name="VENT_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="66" type="word"/>
+		<tag name="VENTA_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="67" type="word"/>
+		<tag name="VENTF_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="68" type="word"/>
+		<tag name="VENTFE_6_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="69" type="word"/>
+
+		<tag name="SZABP_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="70" type="word"/>
+		<tag name="LEPA_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="71" type="word"/>
+		<tag name="RH_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="72" type="word"/>
+		<tag name="HOM_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="73" type="word"/>
+		<tag name="MIDO_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="74" type="word"/>
+		<tag name="MER_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="75" type="word"/>
+		<tag name="CSONDV_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="76" type="word"/>
+		<tag name="VENT_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="77" type="word"/>
+		<tag name="VENTA_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="78" type="word"/>
+		<tag name="VENTF_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="79" type="word"/>
+		<tag name="VENTFE_7_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="80" type="word"/>
+
+		<tag name="SZABP_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="81" type="word"/>
+		<tag name="LEPA_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="82" type="word"/>
+		<tag name="RH_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="83" type="word"/>
+		<tag name="HOM_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="84" type="word"/>
+		<tag name="MIDO_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="85" type="word"/>
+		<tag name="MER_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="86" type="word"/>
+		<tag name="CSONDV_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="87" type="word"/>
+		<tag name="VENT_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="88" type="word"/>
+		<tag name="VENTA_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="89" type="word"/>
+		<tag name="VENTF_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="90" type="word"/>
+		<tag name="VENTFE_8_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="91" type="word"/>
+
+		<tag name="SZABP_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="92" type="word"/>
+		<tag name="LEPA_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="93" type="word"/>
+		<tag name="RH_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="94" type="word"/>
+		<tag name="HOM_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="95" type="word"/>
+		<tag name="MIDO_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="96" type="word"/>
+		<tag name="MER_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="97" type="word"/>
+		<tag name="CSONDV_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="98" type="word"/>
+		<tag name="VENT_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="99" type="word"/>
+		<tag name="VENTA_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="100" type="word"/>
+		<tag name="VENTF_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="101" type="word"/>
+		<tag name="VENTFE_9_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="102" type="word"/>
+
+		<tag name="SZABP_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="103" type="word"/>
+		<tag name="LEPA_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="104" type="word"/>
+		<tag name="RH_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="105" type="word"/>
+		<tag name="HOM_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="106" type="word"/>
+		<tag name="MIDO_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="107" type="word"/>
+		<tag name="MER_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="108" type="word"/>
+		<tag name="CSONDV_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="109" type="word"/>
+		<tag name="VENT_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="110" type="word"/>
+		<tag name="VENTA_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="111" type="word"/>
+		<tag name="VENTF_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="112" type="word"/>
+		<tag name="VENTFE_10_A1" deviceId="A1_Beckhoff_PLC" blockId="Recipe" address="113" type="word"/>
+
+		<!-- Help parameters -->
+		<tag name="P54_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="0" type=" dword"/>
+		<tag name="P55_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="3" type="word"/>
+		<tag name="P56_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="4" type="real16" divider="10"/>
+		<tag name="P57_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="5" type="real16" divider="10"/>
+		<tag name="P58_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="6" type="real16" divider="10"/>
+		<tag name="P59_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="7" type="real16" divider="10"/>
+		<tag name="P60_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="8" type="real16" divider="10"/>
+		<tag name="P61_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="9" type="real16" divider="10"/>
+		<tag name="P62_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="10" type="real16" divider="10"/>
+		<tag name="P63_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="11" type="real16" divider="10"/>
+		<tag name="P64_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="12" type="real16" divider="10"/>
+		<tag name="P65_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="13" type="real16" divider="10"/>
+		<tag name="P66_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="14" type="real16" divider="10"/>
+		<tag name="P67_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="15" type="word"/>
+		<tag name="P68_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="16" type="real16" divider="10"/>
+		<tag name="P69_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="17" type="word"/>
+		<tag name="P70_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="18" type="real16" divider="10"/>
+		<tag name="P71_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="19" type="word"/>
+		<tag name="P72_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="20" type="udword"/>
+		<tag name="P73_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="22" type="udword"/>
+		<tag name="P74_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="24" type="udword"/>
+		<tag name="P75_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="26" type="udword"/>
+		<tag name="P76_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="28" type="udword"/>
+		<tag name="P77_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="30" type="udword"/>
+		<tag name="P78_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="32" type="udword"/>
+		<tag name="P79_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="34" type="udword"/>
+		<tag name="P80_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="36" type="udword"/>
+		<tag name="P81_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="38" type="udword"/>
+		<tag name="P82_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="40" type="udword"/>
+		<tag name="P83_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="42" type="udword"/>
+		<tag name="P84_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="44" type="udword"/>
+		<tag name="P85_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="46" type="udword"/>
+		<tag name="P86_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="48" type="word"/>
+		<tag name="P87_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="49" type="word"/>
+		<tag name="P88_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="50" type="udword"/>
+		<tag name="P89_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="52" type="udword"/>
+		<tag name="P90_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="54" type="udword"/>
+		<tag name="P91_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="56" type="udword"/>
+		<tag name="P92_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="58" type="udword"/>
+		<tag name="P93_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="60" type="udword"/>
+		<tag name="P94_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="62" type="udword"/>
+		<tag name="P95_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="64" type="udword"/>
+		<tag name="P96_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="66" type="udword"/>
+		<tag name="P97_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="68" type="udword"/>
+		<tag name="P98_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="70" type="udword"/>
+		<tag name="P99_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="72" type="real16" divider="10"/>
+		<tag name="P100_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="73" type="real16" divider="10"/>
+		<tag name="P101_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="74" type="real16" divider="10"/>
+		<tag name="102_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="75" type="word"/>
+		<tag name="103_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="76" type="word"/>
+		<tag name="P104_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="77" type="word"/>
+		<tag name="P105_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="78" type="real16" divider="10"/>
+		<tag name="P106_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="79" type="real16" divider="10000"/>
+		<tag name="P107_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="80" type="real16" divider="10"/>
+		<tag name="P108_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="81" type="real16" divider="10"/>
+		<tag name="P109_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="82" type="real16" divider="10000"/>
+		<tag name="P110_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="83" type="real16" divider="10"/>
+		<tag name="P111_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="84" type="real16" divider="10"/>
+		<tag name="P112_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="85" type="real16" divider="10"/>
+		<tag name="P113_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="86" type="real16" divider="10"/>
+		<tag name="P114_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="87" type="real16" divider="10"/>
+		<tag name="P115_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="88" type="uword"/>
+		<tag name="P116_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="89" type="real16" divider="10"/>
+		<tag name="P117_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="90" type="real16" divider="10"/>
+		<tag name="P118_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="91" type="real16" divider="10"/>
+		<tag name="P119_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="92" type="real16" divider="10"/>
+		<tag name="P120_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="93" type="real16" divider="10"/>
+		<tag name="P121_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="94" type="real16" divider="10"/>
+		<tag name="P122_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="95" type="real16" divider="10000"/>
+		<tag name="P123_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="96" type="real16" divider="10"/>
+		<tag name="P124_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="97" type="word"/>
+		<tag name="P125_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="98" type="udword"/>
+		<tag name="P126_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="100" type="real16" divider="10"/>
+		<tag name="P127_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="101" type="word"/>
+		<tag name="P128_A1" deviceId="A1_Beckhoff_PLC" blockId="Help" address="102" type="word"/>
+	</taglist>
+</mbpro>
